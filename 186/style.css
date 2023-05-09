@@ -1,0 +1,166 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    height: 500vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+header{
+    background-color: white;
+    width: 100vw;
+    height: 10vh;
+}
+header .add{
+    background-color: rgb(6, 58, 23);
+    width: 100%;
+    height: 30%;
+}
+header .head{
+    width: 100%;
+    height: 70%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+}
+header .head img{
+    height: 7vh;
+    position: absolute;
+    left: 10vw;
+}
+.scover{
+    width: 100vw;
+    height: 60vh;
+    background-image: url("/186/img/bathe1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -150px;
+    background-attachment: fixed;
+    
+}
+.scover .layer{
+    width: 100vw;
+    height: 60vh;
+    position: relative;
+    align-items: center;
+    display: flex;
+    background-color: #0000004b;
+}
+.scover .Hero{
+    position: absolute;
+    color:rgb(255, 255, 255);
+    left: 10vw;
+}
+.scover .Hero h1{
+    font-size: 2.5vw;
+}
+.menu{
+    right: 10vw;
+    position: absolute;
+    display: flex;
+    gap: 2rem;
+}
+li{
+    list-style: none;
+}
+.head a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.2rem;
+    transition: all .3s ease-in-out;
+}
+.head a:hover{
+    color:rgb(7, 54, 0);
+    font-size: 20px;
+}
+.toggle_btn{
+    right: 10%;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url("img/icons8-menü-abgerundet-100.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    display: none;
+}
+
+.dorp_menu{
+    position: absolute;
+    right: 10%;
+    top:60px;
+    width: 300px;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.123);
+    border-radius: 5px;
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    display: none;
+    transition: all .3s ease-in-out;
+}
+.dorp_menu.open{
+    height: 200px;
+}
+.dorp_menu li {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+@media(max-width:992px){
+    .menu{
+        display: none;
+    }
+    .toggle_btn{
+        display: block;
+    }
+    .logo{
+        left: 10%;
+        width: 20vw;
+        height: 10vw;
+    }
+    .dorp_menu{
+        display: block;
+    }
+}
+
+
+@media(max-width:576px){
+    .dorp_menu{
+        left: 10%;
+        width: unset;
+
+        font-size: 3rem;
+    }
+    .dorp_menu.open{
+        height: 240px;
+    }
+    .dorp_menu li a{
+        font-size: 1.5rem;
+    }
+}
+
+
+
+.list{
+    width: 80vw;
+    margin-left: 10vw;
+    height: 60vh;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+}
+.card{
+    margin-left: 5vw;
+    margin-top: 2vw;
+    width: 20vw;
+    height: 50vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 20px rgba(61, 61, 61, 0.116);
+    transition: all .2s ease-in-out;
+}
+.card:hover{
+    box-shadow: 15px 15px 20px rgba(61, 61, 61, 0.116);
+}
