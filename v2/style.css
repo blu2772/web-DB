@@ -6,6 +6,7 @@ body {
     scroll-snap-type: y mandatory;
     font-family: monospace;
     color:white;
+    scroll-behavior: smooth;
   }
     section{
         min-height: 100vh;
@@ -176,6 +177,7 @@ body {
     gap: 10px;
     justify-content: center;
     align-content: center;
+    margin-left: 10vw;
     width: 80vw;
   }
   .absl{
@@ -248,9 +250,11 @@ body {
     margin-bottom: 2.5vh;
     width: 100%;
     height: 100vh;
-    margin-left: 5vw;
+    padding-left: 2.5vw;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
    }
    .examples{
 
@@ -280,6 +284,7 @@ body {
     height: 26vh;
     margin-top: 2.5vh;
     border-radius: 20px;
+    transition: all .2s ease-in-out;
    }
    .card#e1{
       background-image: url("img/Screenshot\ 2023-05-14\ at\ 17.18.45.png");
@@ -318,15 +323,27 @@ body {
   .footer .Info{
     width: 45vw;
     height: 250px;
-    background-color: #0ff;
   }
   .footer .Pages{
     width: 45vw;
     height: 250px;
-    background-color: #13789d;
     display: flex;
     flex-direction: column;
     align-items: center;
+
   }
-  .Pages{}
+  .footer .Ident{
+    position: absolute;
+    bottom: 0;
+  }
+  .Pages h2{
+    margin: 5px;
+
+  }
+  .Pages a{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: white;
+  }
   
