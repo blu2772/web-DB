@@ -42,7 +42,7 @@ body {
     min-height: 200px;
     min-width: 200px;
     border-radius: 25px;
-    background-image: url("/img/logo1_1.png");
+    background-image: url("img/logo1_1.png");
     position: relative;
     background-size: contain;
     background-clip: border-box;
@@ -259,11 +259,11 @@ body {
     border-radius: 20px;
    }
    .card#e1{
-      background-image: url("/img/Screenshot\ 2023-05-14\ at\ 17.18.45.png");
+      background-image: url("img/Screenshot\ 2023-05-14\ at\ 17.18.45.png");
       background-size: cover;
    }
    .card#w1{
-    background-image: url("/img/image1.png");
+    background-image: url("img/image1.png");
     background-size: cover;
    }
    .card:hover{
