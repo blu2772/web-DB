@@ -34,13 +34,13 @@ function nav(){
       sidebar.style.top = "100vh";
       progressBar.style.height = progress + "%";
         
-    }else if(progress < 100){
+    }else if(progress < 99){
       sidebar.style.position = "fixed";
       sidebar.style.top = "0";
       progressBar.style.height = progress + "%";
     }else{
         sidebar.style.position = "absolute";
-        sidebar.style.top = "404vh"
+        sidebar.style.top = "400vh"
     }
 }
 
