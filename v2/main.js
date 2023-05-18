@@ -25,8 +25,10 @@ function nav(){
     var progressBar = document.querySelector(".prog");
     var sidebar = document.querySelector(".sidebar");
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight-300;
-    var progress = (scrollTop / scrollHeight) * 100;
+    var scrollHeight1 = document.documentElement.scrollHeight - document.documentElement.clientHeight-300;
+    var scrollHeight2 = 300;
+    var progress = (scrollTop / scrollHeight1) * 100;
+    var progress2 = 1-((scrollTop-(visualViewport.height*4))/scrollHeight2)
 
 
     if(progress < 25){
@@ -39,8 +41,7 @@ function nav(){
       sidebar.style.top = '10vh';
       progressBar.style.height = progress + "%";
     }else{
-      sidebar.style.position = 'absolute';
-      sidebar.style.top = '410vh';  
+      sidebar.style.opacity = progress2
     }
 }
 
