@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tim Rempel</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
@@ -33,8 +33,8 @@
     </section>
     <section id="2">
         <div class="tag" id="Info">
-            <h1 style="min-width: 250px; width: 30vw;font-size: 5vh;">Welcome to my portfolio!</h1>
-            <h2 style="min-width: 250px; width: 30vw;">Mein Name ist Tim und ich bin ein Webentwickler mit einer Leidenschaft für die Erstellung visuell beeindruckender und benutzerfreundlicher Websites. Ich bin bestrebt, über die neuesten Trends und Technologien in der Webentwicklung und im Webdesign auf dem Laufenden zu bleiben, und das tue ich ständig Lernen und Experimentieren mit neuen Tools und Techniken, um die bestmögliche Benutzererfahrung zu schaffen.</h2>
+            <h1 class="animateL" style="min-width: 250px; width: 30vw;font-size: 5vh;text-align: center;">Hey mein Name ist Tim.</h1>
+            <h2 class="animateR" style="min-width: 250px; width: 30vw;">Ich bin ein Webentwickler mit einer Leidenschaft für die Erstellung von visuell beeindruckenden und benutzerfreundlichen Websites. Ich strebe danach, stets über die neuesten Trends und Technologien in der Webentwicklung und im Webdesign auf dem Laufenden zu bleiben. Durch kontinuierliches Lernen und das Experimentieren mit neuen Tools und Techniken, arbeite ich daran, die bestmögliche Benutzererfahrung zu schaffen.</h2>
           </div>
     </section>
     <section id="3">
@@ -42,64 +42,67 @@
             <div class="examples">
                 <h1>Beispiele</h1>
                     <div class="wrap">
-                        <div class="card" id="e1">
+                        <div class="card animateL" id="e1">
 
                         </div>
-                        <div class="card" id="e2">
+                        <div class="card animateL" id="e2">
                             
                         </div>
-                        <div class="card" id="e3">
+                        <div class="card animateL" id="e3">
                     </div> 
                 </div>
             </div>
             <div class="work">
                 <h1>Meine Arbeit</h1>
                     <div class="wrap">
-                        <div class="card" id="w1">
+                        <div class="card animateR" id="w1">
 
                         </div>
-                        <div class="card" id="w2">
+                        <div class="card animateR" id="w2">
                             
                         </div>
-                        <div class="card" id="w3">
+                        <div class="card animateR" id="w3">
                     </div> 
             </div>
         </div>
     </section>
     <section id="4">
+        
         <div class="skils">
+            <h3 class="animateB"style="text-align: center;">Im Laufe meiner Karriere als Webentwickler habe ich eine Reihe von Fähigkeiten erworben. Hier sind einige der Technologien, in denen ich vortgeschritten bin.</br></br></br></h3>
             <h1>Html</h1>
-            <div class="balcken"><div class="bals animate S" id="S1"></div></div>
+            <div class="balcken"><div class="bals S" id="S1"></div></div>
             <h1>JS</h1>
-            <div class="balcken"><div class="bals animate S" id="S2"></div></div>
+            <div class="balcken"><div class="bals S" id="S2"></div></div>
             <h1>Mysql</h1>
-            <div class="balcken"><div class="bals animate S" id="S3"></div></div>
+            <div class="balcken"><div class="bals S" id="S3"></div></div>
             <h1>Css</h1>
-            <div class="balcken"><div class="bals animate S" id="S4"></div></div>
+            <div class="balcken"><div class="bals S" id="S4"></div></div>
             <h1>Swift</h1>
-            <div class="balcken"><div class="bals animate S" id="S5"></div></div>
+            <div class="balcken"><div class="bals S" id="S5"></div></div>
           </div>
     </section>
-    <section id="5">
-        
+    <section id="5" class="fr">
+        <h3 class="animateB" style="width: 40vw; text-align: center;">Haben Sie ein Projekt, für das Sie meine Hilfe benötigen? </br>Oder haben Sie Fragen zu meiner Arbeit?</br> Füllen Sie einfach das untenstehende Formular aus und ich werde mich so schnell wie möglich bei Ihnen melden.</br></br></h3>
+        <p>Mit einem * makierte Felder sind notwendig um die anfrage zu senden.</p>
         <form id="form">
-          <div class="input-group">
-            <input required="required" type="text" name="name" autocomplete="off" class="input">
+          <div class="input-group animateL">
+            <input required="" type="text" name="name" autocomplete="off" class="input">
             <label class="user-label">Name</label>
           </div>
-          <div class="input-group">
+          <div class="input-group animateR">
             <input required="required" type="email" name="email" autocomplete="off" class="input">
-            <label class="user-label">Email</label>
+            <label class="user-label">Email*</label>
           </div>
-          <div class="input-group">
+          <div class="input-group animateL">
             <input required="" type="text" name="betreff"  autocomplete="off" class="input">
             <label class="user-label">Betreff</label>
           </div>
-          <div class="input-group">
+          <div class="input-group animateR">
             <textarea required="required" type="text" name="message" cols="30" rows="10" autocomplete="off" class="input"></textarea>
-            <label class="user-label">Nachricht</label>
+            <label class="user-label">Nachricht*</label>
           </div>
-          <input class="send" type="button" value="send" onclick="submitForm()">
+          <input class="send animateB" type="button" value="send" onclick="submitForm()">
         </form>
         <h1 ></h1>        
       
@@ -108,7 +111,10 @@
     <div class="footer">
         <div class="line"></div>
         <div class="Info">
-            
+            <div class="align">
+                <h4>Email: tim@timrmp.de</h4>
+                <h4>Telefon: +49 1791221350</h4>
+            </div>
         </div>
         <div class="Pages">
             <div class="align">
@@ -116,6 +122,7 @@
                 <h4><a href="#3">Meine Arbeit</a></h4>
                 <h4><a href="#4">Meine Skills</a></h4>
                 <h4><a href="#5">Kontaktiere mich </a></h4>
+                <h4><a href="DS.Html">Datenschutzerklärung</a></h4>
             </div>
         </div>
         <div class="Ident">
