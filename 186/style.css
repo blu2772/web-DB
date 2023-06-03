@@ -1,3 +1,4 @@
+
 body{
     margin: 0;
     padding: 0;
@@ -9,6 +10,8 @@ header{
     background-color: white;
     width: 100vw;
     height: 10vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 header .add{
     background-color: rgb(6, 58, 23);
@@ -36,7 +39,8 @@ header .head img{
     background-size: cover;
     background-position: 0px -150px;
     background-attachment: fixed;
-    
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 .scover .layer{
     width: 100vw;
@@ -71,7 +75,6 @@ li{
 }
 .head a:hover{
     color:rgb(7, 54, 0);
-    font-size: 20px;
 }
 .toggle_btn{
     right: 10%;
@@ -106,72 +109,25 @@ li{
     display: flex;
     justify-content: center;
 }
-
-
-
-
-@media(max-width:992px){
-    .menu{
-        display: none;
-    }
-    .toggle_btn{
-        display: block;
-    }
-    .logo{
-        left: 10%;
-        width: 20vw;
-        height: 10vw;
-    }
-    .dorp_menu{
-        display: block;
-    }
-    .list{
-        flex-direction: column;
-        flex-wrap: nowrap;
-    }
-    .card{
-        flex-basis: 100%;
-    }
-}
-
-
-@media(max-width:576px){
-    .dorp_menu{
-        left: 10%;
-        width: unset;
-
-        font-size: 3rem;
-    }
-    .dorp_menu.open{
-        height: 240px;
-    }
-    .dorp_menu li a{
-        font-size: 1.5rem;
-    }
-}
-
-
-
 .list{
-    width: 80vw;
-    margin-left: 10vw;
-    height: 60vh;
+    width: 100vw;
     background-color: rgb(255, 255, 255);
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: hidden;
 }
 .card{
-    min-width: none;
-    flex-basis: 30%;
-    margin-top: 2.5vw;
-    margin-left: 2.5vw;
     min-height: 50vh;
+    min-width: 300px;
+    margin: 20px;
     background-color: rgb(255, 255, 255);
     box-shadow: 5px 5px 20px rgba(61, 61, 61, 0.116);
     transition: all .2s ease-in-out;
 }
 .card:hover{
     box-shadow: 15px 15px 20px rgba(61, 61, 61, 0.116);
+    transform: scale(1.03);
 }
 .card .cimg1{
     width: 100%;
@@ -190,4 +146,134 @@ li{
     height: 50%;
     background-image: url("img/planen.PNG");
     background-size: cover;
+}
+.info{
+    margin: 10vw;
+    min-width: 80vw;  
+    min-height: 800px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+.info .imgL{
+    position: absolute;
+    width: 40vw;
+    min-width: 300px;
+    height: 800px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(61, 61, 61, 0.116);
+    left: 10%;
+    z-index: 3;
+    background-image: url("img/Tim.rmp_Gas-_und_Wasserinstallateur_modern_schlicht_4ed11a5a-30d7-426c-99c2-a464a7d80c2a.png");
+    background-size: cover;
+    background-position: -80px;
+}
+.info .textR{
+    z-index: 4;
+    position: absolute;
+    max-width: 40vw;
+    min-width: 300px;
+    top: 150px;
+    height: 500px;
+    box-shadow: 5px 5px 20px rgba(61, 61, 61, 0.116);
+    right: 10%;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.info .imgR{
+    position: absolute;
+    width: 40vw;
+    min-width: 300px;
+    height: 800px;
+    box-shadow: 5px 5px 20px rgba(61, 61, 61, 0.116);
+    right: 10%;
+    border-radius: 10px;
+}
+.info .textL{
+    position: absolute;
+    width: 40vw;
+    min-width: 300px;
+    top: 150px;
+    height: 500px;
+    box-shadow: 5px 5px 20px rgba(61, 61, 61, 0.116);
+    left: 10%;
+    border-radius: 10px;
+    
+}
+.spacer{
+    width: 100vw;
+    height: 100px;
+}
+.animate {
+    opacity: 0; 
+    transition: opacity 1s, transform 1s; 
+  }
+  .animateT {
+    opacity: 0;
+    transform: translateY(-100%); 
+    transition: opacity 1s, transform 1s; 
+  }
+  .animateB {
+    opacity: 0; 
+    transform: translateY(100%);
+    transition: opacity 1s, transform 1s; 
+  }
+  .animateR {
+    opacity: 0; 
+    transform: translateX(100%);
+    transition: opacity 1s, transform 1s; 
+  }
+  .animateL {
+    opacity: 0; 
+    transform: translateX(-100%); 
+    transition: opacity 1s, transform 1s; 
+  }
+  .visible {
+    opacity: 1; /* Setzt die Transparenz auf 1, um das Element sichtbar zu machen */
+    transform: translateY(0); /* Verschiebt das Element auf den Ausgangspunkt (0% Translation auf der X-Achse) */
+  }
+
+
+@media(max-width:992px){
+    .menu{
+        display: none;
+    }
+    .toggle_btn{
+        display: block;
+    }
+    .logo{
+        left: 10%;
+        width: 20vw;
+        height: 10vw;
+    }
+    .dorp_menu{
+        display: block;
+    }
+}
+
+
+@media(max-width:576px){
+    .dorp_menu{
+        left: 10%;
+        width: unset;
+
+        font-size: 3rem;
+    }
+    .dorp_menu.open{
+        height: 240px;
+    }
+    .dorp_menu li a{
+        font-size: 1.5rem;
+    }
+    .card{
+        width: 70vw;
+    }
 }
