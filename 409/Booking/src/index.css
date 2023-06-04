@@ -1,0 +1,29 @@
+body{
+    width: 100%;
+    height: 100vh;
+    
+}
+.app{
+    position: relative;
+}
+.navBar{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+}
+.navBar .Menu{
+    position: absolute;
+    right: 20px;
+}
+.navBar .Menu .list{
+    margin: 0;
+    padding: 0;
+}
+.navBar .logo{
+    position: absolute;
+    left: 20px;
+}
