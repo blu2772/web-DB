@@ -28,14 +28,8 @@ $enddate = $data['enddate'];
 $status = $data['status'];
 
 try {
-    $stmt = $db->prepare("INSERT into Booking.Kalender (name, email, startdate, enddate, status) VALUES (test, test, test, stse, test)");
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':start', $startdate);
-    $stmt->bindParam(':end', $enddate);
-    $stmt->bindParam(':stat', $status);
+    $stmt = $db->prepare("INSERT INTO Kalender (name, email, startdate, enddate, status) VALUES ("$name", "$email", "$startdate", "$enddate", "$status")");
     $stmt->execute();
-    
 
     // Erfolgsnachricht senden
     $response = ['success' => true, 'message' => 'Daten erfolgreich in die Datenbank eingefügt'];
