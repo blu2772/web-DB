@@ -27,15 +27,15 @@ $enddate = $data['enddate'];
 $status = $data['status'];
 
 try {
-    $stmt = $db->prepare("INSERT INTO deine_tabelle (name, start_date, end_date, status) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$name, $startdate, $enddate, $status]);
+    $stmt = $db->prepare("INSERT INTO deine_tabelle (name, start_date, end_date, status) VALUES ($name, $startdate, $enddate, $status)");
+
 
     // Erfolgsnachricht senden
     $response = ['success' => true, 'message' => 'Daten erfolgreich in die Datenbank eingefügt'];
     echo json_encode($response);
 } catch(PDOException $e) {
     // Fehlerbehandlung bei Datenbankeinfügefehler
-    $response = ['success' => false, 'message' => 'Fehler beim Einfügen der Daten in die Datenbank','error' => $stmt->error_log];
+    $response = ['success' => false, 'message' => 'Fehler beim Einfügen der Daten in die Datenbank','error' => $stmt->];
     echo json_encode($response);
 }
 ?>
