@@ -22,12 +22,13 @@ try {
 
 // Daten in die Datenbank einfügen (Beispiel für eine Tabelle mit den Spalten "name" und "email")
 $name = $data['name'];
+$email = $data["email"]
 $startdate = $data['startdate'];
 $enddate = $data['enddate'];
 $status = $data['status'];
 
 try {
-    $stmt = $db->prepare("INSERT INTO deine_tabelle (name, start_date, end_date, status) VALUES ($name, $startdate, $enddate, $status)");
+    $stmt = $db->prepare("INSERT INTO Kalender (name, email, startdate, enddate, status) VALUES ($name, $email, $startdate, $enddate, $status)");
     $stmt->execute();
 
     // Erfolgsnachricht senden
