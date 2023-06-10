@@ -11,7 +11,7 @@ const Menu = ({ items, onSelectMenu }: Props) => {
     <div className="Menu">
       <ul className="list" key={"Menu-list"}>
         {items.map((item, index) => (
-          <Button onClick={() => onSelectMenu(item)} color="outline-dark">
+          <Button onClick={() => onSelectMenu(item)} color="nav-link">
             {item}
           </Button>
         ))}

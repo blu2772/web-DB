@@ -5,6 +5,9 @@ body{
 }
 .app{
     position: relative;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
 }
 .navBar{
     position: absolute;
@@ -26,4 +29,45 @@ body{
 .navBar .logo{
     position: absolute;
     left: 20px;
+    max-width: 10%;
+}
+.Calendar{
+    width: 100%;
+    height: 100%;
+}
+.opacit{
+    opacity: 0.5;
+}
+
+.L{
+    left: 5%;
+    top: 20%;
+}
+.LT{
+    text-align: left;
+    width: 100%;
+    left: 5%;
+    top: 5%;
+}
+.LB{
+    left: 5%;
+    bottom: 5%;
+}
+
+.R{
+    right: 5%;
+    top: 20%;
+}
+.RT{
+    text-align: right;
+    width: 100%;
+    right: 5%;
+    top: 5%;
+}
+.RB{
+    right: 5%;
+    bottom: 5%;
+}
+.M{
+    text-align: center;
 }

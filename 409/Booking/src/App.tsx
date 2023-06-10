@@ -1,8 +1,9 @@
 import { useState } from "react";
-import Alert from "./components/Alert";
-import Button from "./components/Button";
-import ListGroup from "./components/ListGroup";
 import Navbar from "./components/Navbar";
+import Calendar from "./components/Calender";
+import Split from "./components/Split";
+import Menu from "./components/Menu";
+import Spacer from "./components/Spacer";
 
 function App() {
   const [alertVisibile, setAlertVisibility] = useState(false);
@@ -20,8 +21,26 @@ function App() {
       <Navbar
         onSelectPage={handlePageSelect}
         items={["Home", "Info", "Book"]}
-        imageSrc="/src/assets/react.svg"
+        imageSrc="/src/assets/PTLogo.png"
       ></Navbar>
+      <div className="container">
+        <Split
+          Heading="Info"
+          imagepath="/src/assets/Penthause2.png"
+          content={
+            <Menu onSelectMenu={handlePageSelect} items={["test"]}></Menu>
+          }
+          orientation="L"
+        ></Split>
+        <Spacer>100</Spacer>
+        <Split
+          Heading="Verfügbarkeit prüfen."
+          imagepath="/src/assets/Penthause1.png"
+          content={<Calendar initialDate={new Date()}></Calendar>}
+          orientation="R"
+          Headingorient="L"
+        ></Split>
+      </div>
     </div>
   );
 }
