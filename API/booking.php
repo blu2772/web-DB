@@ -35,7 +35,7 @@ try {
     echo json_encode($response);
 } catch(PDOException $e) {
     // Fehlerbehandlung bei Datenbankeinfügefehler
-    $response = ['success' => false, 'message' => 'Fehler beim Einfügen der Daten in die Datenbank'];
+    $response = ['success' => false, 'message' => 'Fehler beim Einfügen der Daten in die Datenbank','error' => $stmt->error_log];
     echo json_encode($response);
 }
 ?>
