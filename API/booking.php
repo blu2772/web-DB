@@ -28,7 +28,7 @@ $status = $data['status'];
 
 try {
     $stmt = $db->prepare("INSERT INTO deine_tabelle (name, start_date, end_date, status) VALUES ($name, $startdate, $enddate, $status)");
-
+    $stmt->execute();
 
     // Erfolgsnachricht senden
     $response = ['success' => true, 'message' => 'Daten erfolgreich in die Datenbank eingefügt'];
