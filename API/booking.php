@@ -22,7 +22,7 @@ try {
 
 // Daten in die Datenbank einfügen (Beispiel für eine Tabelle mit den Spalten "name" und "email")
 $name = $data['name'];
-$email = $data["email"]
+$email = $data["email"];
 $startdate = $data['startdate'];
 $enddate = $data['enddate'];
 $status = $data['status'];
