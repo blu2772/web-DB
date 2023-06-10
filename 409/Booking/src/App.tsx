@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { sendPostRequest } from "./components/sql";
 import Navbar from "./components/Navbar";
 import Calendar from "./components/Calender";
 import Split from "./components/Split";
@@ -13,7 +14,21 @@ function App() {
     setAlertVisibility(true);
   };
   const handlePageSelect = (item: string) => {
-    console.log(item);
+    const data = {
+      name: "John Doe",
+      startdate: "20/06/2023",
+      enddate: "25/06/2023",
+      status: "a",
+    };
+    sendPostRequest(data)
+      .then((result) => {
+        console.log(result);
+        // Verarbeitung der Antwort
+      })
+      .catch((error) => {
+        console.error(error);
+        // Fehlerbehandlung
+      });
   };
 
   return (

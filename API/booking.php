@@ -22,7 +22,7 @@ try {
 $name = $data['name'];
 $startdate = $data['startdate'];
 $enddate = $data['enddate'];
-$status = $['status']
+$status = $['status'];
 
 try {
     $stmt = $db->prepare("INSERT INTO deine_tabelle (name, start_date, end_date, status) VALUES (?, ?, ?, ?)");
