@@ -28,7 +28,7 @@ $enddate = $data['enddate'];
 $status = $data['status'];
 
 try {
-    $stmt = $db->prepare("INSERT INTO Kalender (name, email, startdate, enddate, status) VALUES ("$name", "$email", "$startdate", "$enddate", "$status")");
+    $stmt = $db->prepare("INSERT INTO Kalender (name, email, startdate, enddate, status) VALUES ('$name', '$email', '$startdate', '$enddate', '$status')");
     $stmt->execute();
 
     // Erfolgsnachricht senden
