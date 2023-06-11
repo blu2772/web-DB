@@ -48,15 +48,21 @@ $stmt->execute();
     break;
     case"read":
         try {
-            $stmt = $db->prepare("INSERT INTO Kalender (name, email, startdate, enddate, status) VALUES ('$name', '$email', '$startdate', '$enddate', '$status')");
+            $stmt = $db->prepare("SELECT * FROM Kalender WHERE startdate > :startdate AND enddate < :enddate");
+            $stmt->bindParam(':startdate', $data["startdate"]);
+            $stmt->bindParam(':enddate', $data["enddate"]);
             $stmt->execute();
         
-            // Erfolgsnachricht senden
-            $response = ['success' => true, 'message' => 'Daten erfolgreich in die Datenbank eingefügt'];
-            echo json_encode($response);
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Convert the results to JSON
+            $jsonArray = json_encode($results);
+
+            // Return the JSON response
+            echo $jsonArray;
         } catch(PDOException $e) {
             // Fehlerbehandlung bei Datenbankeinfügefehler
-            $response = ['success' => false, 'message' => 'Fehler beim Einfügen der Daten in die Datenbank','error' => $e->getMessage()];
+            $response = ['success' => false, 'message' => 'Fehler beim lessen des Kalenders','error' => $e->getMessage()];
             echo json_encode($response);
         }
     break;
