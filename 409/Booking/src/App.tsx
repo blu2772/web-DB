@@ -17,20 +17,20 @@ function App() {
     const currentDate = new Date();
     const startOfMonth = new Date(
       currentDate.getFullYear(),
-      currentDate.getMonth(),
-      1
+      currentDate.getMonth() + 1,
+      10
     );
     const endOfMonth = new Date(
       currentDate.getFullYear(),
-      currentDate.getMonth() + 1,
-      0
+      currentDate.getMonth() + 2,
+      20
     );
 
     const data = {
-      name: "Tim Rempel",
-      email: "tim@timrmp.de",
-      startdate: startOfMonth.toISOString().split("T")[0],
-      enddate: endOfMonth.toISOString().split("T")[0],
+      name: "Olga Rempel",
+      email: "oo@ormp.de",
+      startdate: startOfMonth,
+      enddate: endOfMonth,
       status: "a",
       cmd: "Book",
     };
@@ -39,8 +39,8 @@ function App() {
       enddate: endOfMonth.toISOString().split("T")[0],
       cmd: "read",
     };
-    console.log(readdata);
-    sendPostRequest(readdata)
+    console.log(data);
+    sendPostRequest(data)
       .then((result) => {
         console.log(result);
         // Verarbeitung der Antwort

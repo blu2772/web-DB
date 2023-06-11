@@ -1,4 +1,13 @@
 import React, { useState } from "react";
+import { sendPostRequest } from "./sql";
+
+interface Reservation {
+  id: string;
+  name: string;
+  email: string;
+  startdate: string;
+  enddate: string;
+}
 
 interface CalendarProps {
   initialDate: Date;
@@ -6,14 +15,13 @@ interface CalendarProps {
 
 const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
   const [currentDate, setCurrentDate] = useState<Date>(initialDate);
+  const [reservation, setReservation] = useState<Reservation[]>([]);
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
   const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
   const [hoverDate, setHoverDate] = useState<Date | null>(null);
-  const [coolStyle, setCoolStyle] = useState({});
 
   const handleDateClick = (date: Date) => {
     if (selectedStartDate && selectedEndDate) {
-      // Both start and end dates are already selected, so reset the selection
       setSelectedStartDate(date);
       setSelectedEndDate(null);
     } else if (
@@ -21,10 +29,8 @@ const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
       !selectedEndDate &&
       date >= selectedStartDate
     ) {
-      // Start date is selected, and end date is not selected yet
       setSelectedEndDate(date);
     } else {
-      // Neither start nor end date is selected
       setSelectedStartDate(date);
       setSelectedEndDate(null);
     }
@@ -37,6 +43,9 @@ const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
       1
     );
     setCurrentDate(previousMonth);
+    setTimeout(() => {
+      updateresmo(previousMonth);
+    }, 0);
   };
 
   const handleNext = () => {
@@ -46,10 +55,46 @@ const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
       1
     );
     setCurrentDate(nextMonth);
+    setTimeout(() => {
+      updateresmo(nextMonth);
+    }, 0);
+  };
+
+  const updateresmo = (newdate: Date) => {
+    const startOfMonth = new Date(newdate.getFullYear(), newdate.getMonth(), 1);
+    const endOfMonth = new Date(
+      newdate.getFullYear(),
+      newdate.getMonth() + 1,
+      1
+    );
+    const readdata = {
+      startdate: startOfMonth.toISOString().split("T")[0],
+      enddate: endOfMonth.toISOString().split("T")[0],
+      cmd: "read",
+    };
+    console.log(readdata);
+    sendPostRequest(readdata)
+      .then((result) => {
+        console.log(result);
+        setReservation(result);
+        // Verarbeitung der Antwort
+      })
+      .catch((error) => {
+        console.error(error);
+        // Fehlerbehandlung
+      });
   };
 
   const handleDateHover = (date: Date | null) => {
     setHoverDate(date);
+  };
+
+  const isReserved = (date: Date): boolean => {
+    return reservation.some((res) => {
+      const startDate = new Date(res.startdate);
+      const endDate = new Date(res.enddate);
+      return date >= startDate && date <= endDate;
+    });
   };
 
   const renderCalendar = () => {
@@ -58,7 +103,7 @@ const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
 
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const startDay = new Date(year, month, 1).getDay();
-    const weeks: Date[][] = [];
+    const weekRows: Date[][] = [];
 
     let currentWeek: Date[] = [];
     for (let i = 0; i < startDay; i++) {
@@ -70,13 +115,13 @@ const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
       currentWeek.push(date);
 
       if (currentWeek.length === 7) {
-        weeks.push(currentWeek);
+        weekRows.push(currentWeek);
         currentWeek = [];
       }
     }
 
     if (currentWeek.length > 0) {
-      weeks.push(currentWeek);
+      weekRows.push(currentWeek);
     }
 
     return (
@@ -116,7 +161,7 @@ const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
             </tr>
           </thead>
           <tbody>
-            {weeks.map((week, index) => (
+            {weekRows.map((week, index) => (
               <tr key={index}>
                 {week.map((date, index) => {
                   const isStartDate =
@@ -147,6 +192,8 @@ const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
                           ? "bg-success text-white"
                           : isInRange
                           ? "bg-success opacit"
+                          : isReserved(date)
+                          ? "bg-danger"
                           : ""
                       }`}
                     >
