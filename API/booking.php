@@ -26,17 +26,39 @@ $email = $data["email"];
 $startdate = $data['startdate'];
 $enddate = $data['enddate'];
 $status = $data['status'];
-
-try {
-    $stmt = $db->prepare("INSERT INTO Kalender (name, email, startdate, enddate, status) VALUES ('$name', '$email', '$startdate', '$enddate', '$status')");
-    $stmt->execute();
-
-    // Erfolgsnachricht senden
-    $response = ['success' => true, 'message' => 'Daten erfolgreich in die Datenbank eingefügt'];
+switch($data['cmd']){
+    case"Book":
+        try {
+            $stmt = $db->prepare("INSERT INTO Kalender (name, email, startdate, enddate, status) VALUES ('$data['name']', '$data["email"]', '$data['startdate']', '$data['enddate']', '$data['status']')");
+            $stmt->execute();
+        
+            // Erfolgsnachricht senden
+            $response = ['success' => true, 'message' => 'Daten erfolgreich in die Datenbank eingefügt'];
+            echo json_encode($response);
+        } catch(PDOException $e) {
+            // Fehlerbehandlung bei Datenbankeinfügefehler
+            $response = ['success' => false, 'message' => 'Fehler beim Einfügen der Daten in die Datenbank','error' => $e->getMessage()];
+            echo json_encode($response);
+        }
+    break;
+    case"read":
+        try {
+            $stmt = $db->prepare("INSERT INTO Kalender (name, email, startdate, enddate, status) VALUES ('$name', '$email', '$startdate', '$enddate', '$status')");
+            $stmt->execute();
+        
+            // Erfolgsnachricht senden
+            $response = ['success' => true, 'message' => 'Daten erfolgreich in die Datenbank eingefügt'];
+            echo json_encode($response);
+        } catch(PDOException $e) {
+            // Fehlerbehandlung bei Datenbankeinfügefehler
+            $response = ['success' => false, 'message' => 'Fehler beim Einfügen der Daten in die Datenbank','error' => $e->getMessage()];
+            echo json_encode($response);
+        }
+    break;
+    default:
+    $response = ['success' => false, 'message' => 'no known comand given'];
     echo json_encode($response);
-} catch(PDOException $e) {
-    // Fehlerbehandlung bei Datenbankeinfügefehler
-    $response = ['success' => false, 'message' => 'Fehler beim Einfügen der Daten in die Datenbank','error' => $e->getMessage()];
-    echo json_encode($response);
+    break;   
 }
+
 ?>

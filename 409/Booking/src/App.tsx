@@ -15,10 +15,10 @@ function App() {
   };
   const handlePageSelect = (item: string) => {
     const data = {
-      name: "John Doe",
-      email: "test@test.de",
-      startdate: "20/06/2023",
-      enddate: "25/06/2023",
+      name: "Herman brachen",
+      email: "herman@brachen.de",
+      startdate: "17/12/2023",
+      enddate: "20/01/2024",
       status: "a",
     };
     sendPostRequest(data)
