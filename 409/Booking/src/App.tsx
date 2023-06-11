@@ -20,6 +20,7 @@ function App() {
       startdate: "17/12/2023",
       enddate: "20/01/2024",
       status: "a",
+      cmd: "Book",
     };
     sendPostRequest(data)
       .then((result) => {
