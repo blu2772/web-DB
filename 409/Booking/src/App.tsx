@@ -5,8 +5,21 @@ import Calendar from "./components/Calender";
 import Split from "./components/Split";
 import Menu from "./components/Menu";
 import Spacer from "./components/Spacer";
+import React, { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    // Code to execute on startup
+    console.log("App started");
+    // Other initialization code...
+
+    // Cleanup function (optional)
+    return () => {
+      // Code to clean up any resources if needed
+      console.log("App cleanup");
+    };
+  }, []);
+
   const [alertVisibile, setAlertVisibility] = useState(false);
   const [SelectetFrute, setFrute] = useState("");
   const handleSelectItem = (item: string) => {
