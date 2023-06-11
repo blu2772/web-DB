@@ -62,7 +62,7 @@ const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
 
   const updateresmo = (newdate: Date) => {
     const year = newdate.getFullYear();
-    const startOfMonth = new Date(year, 0, 1);
+    const startOfMonth = new Date(year, 1, 0);
     const endOfMonth = new Date(year, 12, 1);
     const readdata = {
       startdate: startOfMonth.toISOString().split("T")[0],
