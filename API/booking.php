@@ -29,9 +29,13 @@ $status = $data['status'];
 switch($data['cmd']){
     case"Book":
         try {
-            $stmt = $db->prepare("INSERT INTO Kalender (name, email, startdate, enddate, status) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $data["name"], $data["email"], $data['startdate'], $data['enddate'], $data['status']);
-            $stmt->execute();
+            $stmt = $db->prepare("INSERT INTO Kalender (name, email, startdate, enddate, status) VALUES (:name, :email, :startdate, :enddate, :status)");
+$stmt->bindParam(':name', $data["name"]);
+$stmt->bindParam(':email', $data["email"]);
+$stmt->bindParam(':startdate', $data['startdate']);
+$stmt->bindParam(':enddate', $data['enddate']);
+$stmt->bindParam(':status', $data['status']);
+$stmt->execute();
         
             // Erfolgsnachricht senden
             $response = ['success' => true, 'message' => 'Daten erfolgreich in die Datenbank eingefügt'];
