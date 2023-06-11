@@ -14,15 +14,33 @@ function App() {
     setAlertVisibility(true);
   };
   const handlePageSelect = (item: string) => {
+    const currentDate = new Date();
+    const startOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      1
+    );
+    const endOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + 1,
+      0
+    );
+
     const data = {
-      name: "Herman brachen",
-      email: "herman@brachen.de",
-      startdate: "17/12/2023",
-      enddate: "20/01/2024",
+      name: "Tim Rempel",
+      email: "tim@timrmp.de",
+      startdate: startOfMonth.toISOString().split("T")[0],
+      enddate: endOfMonth.toISOString().split("T")[0],
       status: "a",
       cmd: "Book",
     };
-    sendPostRequest(data)
+    const readdata = {
+      startdate: startOfMonth.toISOString().split("T")[0],
+      enddate: endOfMonth.toISOString().split("T")[0],
+      cmd: "read",
+    };
+    console.log(readdata);
+    sendPostRequest(readdata)
       .then((result) => {
         console.log(result);
         // Verarbeitung der Antwort
