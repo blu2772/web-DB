@@ -48,9 +48,7 @@ $stmt->execute();
     break;
     case"read":
         try {
-            $stmt = $db->prepare("SELECT * FROM Kalender WHERE startdate >= :startdate or enddate <= :enddate");
-            $stmt->bindParam(':startdate', $data["startdate"]);
-            $stmt->bindParam(':enddate', $data["enddate"]);
+            $stmt = $db->prepare("SELECT * FROM Kalender");
             $stmt->execute();
         
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);

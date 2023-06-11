@@ -42,10 +42,10 @@ const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
       currentDate.getMonth() - 1,
       1
     );
+
+    updateresmo(previousMonth);
+
     setCurrentDate(previousMonth);
-    setTimeout(() => {
-      updateresmo(previousMonth);
-    }, 0);
   };
 
   const handleNext = () => {
@@ -54,19 +54,16 @@ const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
       currentDate.getMonth() + 1,
       1
     );
+
+    updateresmo(nextMonth);
+
     setCurrentDate(nextMonth);
-    setTimeout(() => {
-      updateresmo(nextMonth);
-    }, 0);
   };
 
   const updateresmo = (newdate: Date) => {
-    const startOfMonth = new Date(newdate.getFullYear(), newdate.getMonth(), 1);
-    const endOfMonth = new Date(
-      newdate.getFullYear(),
-      newdate.getMonth() + 1,
-      1
-    );
+    const year = newdate.getFullYear();
+    const startOfMonth = new Date(year, 0, 1);
+    const endOfMonth = new Date(year, 12, 1);
     const readdata = {
       startdate: startOfMonth.toISOString().split("T")[0],
       enddate: endOfMonth.toISOString().split("T")[0],
